@@ -1,9 +1,12 @@
+// 引入自定义配置
+const config = require("./custom.config");
+
 module.exports = {
   "devServer": {
     "port": 3000,
     "proxy": {
       "/api/": {
-        "target": "http://192.168.10.161:8080/",
+        "target": config.serverHostName,
         "changeOrigin": true,
         "ws": true,
         "pathRewrite": {
